@@ -1,7 +1,6 @@
 package com.seaweed.simple.modules.user.model;
 
 import com.seaweed.simple.common.abstracts.entity.DefaultEntity;
-import com.seaweed.simple.modules.family.model.FamilyEntity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +20,4 @@ public class UserEntity extends DefaultEntity {
         this.uid = uid;
     }
 
-    @ToString.Exclude
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
-    private FamilyEntity family;
 }

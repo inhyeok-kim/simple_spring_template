@@ -4,18 +4,15 @@ import com.seaweed.simple.common.abstracts.service.DefaultService;
 import com.seaweed.simple.modules.auth.entity.SimpleAuthEntity;
 import com.seaweed.simple.modules.auth.model.AuthRegistDTO;
 import com.seaweed.simple.modules.auth.repository.AuthRepository;
-import com.seaweed.simple.modules.crypto.RSACrypto;
 import com.seaweed.simple.modules.user.model.UserDTO;
 import com.seaweed.simple.modules.user.model.UserEntity;
 import com.seaweed.simple.modules.user.repository.UserRepository;
 import com.seaweed.simple.modules.user.service.UserService;
-import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
 import java.util.Optional;
 
 @Service

@@ -1,4 +1,4 @@
-package com.seaweed.simple.modules.crypto;
+package com.seaweed.simple.common.util.crypto;
 
 import javax.crypto.Cipher;
 import java.security.*;
@@ -7,7 +7,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 import java.util.HashMap;
 
-public class RSACrypto {
+public class RSACryptoUtil {
     /*
      * 공개키와 개인키 한 쌍 생성
      */

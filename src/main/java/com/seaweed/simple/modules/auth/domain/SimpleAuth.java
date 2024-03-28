@@ -2,7 +2,7 @@ package com.seaweed.simple.modules.auth.domain;
 
 
 import com.seaweed.simple.modules.auth.entity.SimpleAuthEntity;
-import com.seaweed.simple.modules.crypto.SHACrypto;
+import com.seaweed.simple.common.util.crypto.SHACryptoUtil;
 import lombok.Getter;
 import org.springframework.util.StringUtils;
 
@@ -40,7 +40,7 @@ public class SimpleAuth {
     }
 
     private String encryptPassword(String password) throws NoSuchAlgorithmException {
-        return SHACrypto.encrypt(password,PASSWORD_SALT);
+        return SHACryptoUtil.encrypt(password,PASSWORD_SALT);
     }
 
 }

@@ -1,9 +1,9 @@
-package com.seaweed.simple.modules.crypto;
+package com.seaweed.simple.common.util.crypto;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class SHACrypto {
+public class SHACryptoUtil {
     public static String encrypt(String text, String salt) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
 
