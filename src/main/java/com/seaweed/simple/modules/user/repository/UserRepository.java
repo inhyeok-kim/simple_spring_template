@@ -1,6 +1,6 @@
 package com.seaweed.simple.modules.user.repository;
 
-import com.seaweed.simple.modules.user.model.UserEntity;
+import com.seaweed.simple.modules.user.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

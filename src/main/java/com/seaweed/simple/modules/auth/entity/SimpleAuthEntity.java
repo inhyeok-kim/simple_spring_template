@@ -1,7 +1,6 @@
 package com.seaweed.simple.modules.auth.entity;
 
 import com.seaweed.simple.common.abstracts.entity.DefaultEntity;
-import com.seaweed.simple.modules.user.model.UserEntity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

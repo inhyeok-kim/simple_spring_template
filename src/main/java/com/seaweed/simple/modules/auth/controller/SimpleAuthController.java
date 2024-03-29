@@ -1,11 +1,9 @@
 package com.seaweed.simple.modules.auth.controller;
 
 import com.seaweed.simple.common.abstracts.controller.DefaultController;
-import com.seaweed.simple.common.component.SessionAuthenticationContext;
+import com.seaweed.simple.common.component.http.session.SessionAuthenticationContext;
 import com.seaweed.simple.modules.auth.domain.SimpleAuth;
-import com.seaweed.simple.modules.auth.model.AuthRegistDTO;
-import com.seaweed.simple.modules.auth.service.SimpleAuthService;
-import com.seaweed.simple.modules.user.model.UserDTO;
+import com.seaweed.simple.modules.auth.usecase.SimpleAuthUsecase;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
 @RestController
@@ -23,7 +20,7 @@ import java.util.Map;
 public class SimpleAuthController extends DefaultController {
 
     @Autowired
-    private SimpleAuthService simpleAuthService;
+    private SimpleAuthUsecase simpleAuthUsecase;
 
     @PostMapping("")
     public ResponseEntity login(
@@ -37,29 +34,33 @@ public class SimpleAuthController extends DefaultController {
             return responseBuilder.responseBadError();
         }
 
-        SimpleAuth simpleAuth = simpleAuthService.authenticate(loginId, password);
+        SimpleAuth simpleAuth = simpleAuthUsecase.login(loginId, password);
 
         if(simpleAuth == null){
             return responseBuilder.responseFail("no matched id and password");
         } else {
-            SessionAuthenticationContext.authenticate(request.getSession(),simpleAuth.getUserUId(),simpleAuth.getType());
+            try {
+                SessionAuthenticationContext.authenticate(request.getSession(),simpleAuth.getUserId(),simpleAuth.getType());
+            } catch (Exception e){
+                return responseBuilder.responseFail();
+            }
         }
 
         return responseBuilder.response();
     }
 
 
-    @GetMapping("")
+    @GetMapping("/check")
     public ResponseEntity check(
             HttpServletRequest request,
             HttpServletResponse response
     ){
-        UserDTO loginUser = getLoginUser();
-        if(loginUser == null) {
+
+        if(SessionAuthenticationContext.isAuthenticated(request.getSession())){
+            return responseBuilder.response();
+        } else {
             return responseBuilder.responseUnAuthenticated();
         }
-
-        return responseBuilder.response(loginUser);
     }
 
 }

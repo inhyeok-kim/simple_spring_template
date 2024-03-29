@@ -3,12 +3,9 @@ package com.seaweed.simple.common.scheduler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.time.YearMonth;
-import java.time.temporal.ChronoUnit;
-
 @Component
 @Slf4j
-public class AttendManagerScheduler {
+public class SimpleScheduler {
 
 //    @Async
 //    @Scheduled(fixedDelay = 1000 * 60 * 9) // 9분마다

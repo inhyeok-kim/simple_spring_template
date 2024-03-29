@@ -4,17 +4,23 @@ package com.seaweed.simple.modules.auth.domain;
 import com.seaweed.simple.modules.auth.entity.SimpleAuthEntity;
 import com.seaweed.simple.common.util.crypto.SHACryptoUtil;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.util.StringUtils;
 
 import java.security.NoSuchAlgorithmException;
 
 public class SimpleAuth {
     @Getter
+    private long id;
+
+    @Getter
     private String loginId;
+    @Getter
     private String password;
 
     @Getter
-    private String UserUId;
+    @Setter
+    private long userId;
 
     @Getter
     private final String type = "simple";
@@ -28,6 +34,7 @@ public class SimpleAuth {
     }
 
     public SimpleAuth(SimpleAuthEntity entity){
+        this.id = entity.getId();
         this.loginId = entity.getLoginId();
         this.password = entity.getPassword();
     }

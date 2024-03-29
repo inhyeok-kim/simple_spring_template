@@ -1,4 +1,4 @@
-package com.seaweed.simple.common.response;
+package com.seaweed.simple.common.component.http.response;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

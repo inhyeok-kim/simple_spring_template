@@ -1,4 +1,4 @@
-package com.seaweed.simple.common.config.filter;
+package com.seaweed.simple.common.abstracts.filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
