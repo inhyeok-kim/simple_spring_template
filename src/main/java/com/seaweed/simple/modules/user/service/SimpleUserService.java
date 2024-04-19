@@ -5,6 +5,7 @@ import com.seaweed.simple.modules.user.domain.SimpleUser;
 import com.seaweed.simple.modules.user.entity.UserEntity;
 import com.seaweed.simple.modules.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -14,6 +15,9 @@ public class SimpleUserService extends DefaultService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private ApplicationContext applicationContext;
 
     public SimpleUser getUserDTOById(long id){
         Optional<UserEntity> userOpt = userRepository.findById(id);
