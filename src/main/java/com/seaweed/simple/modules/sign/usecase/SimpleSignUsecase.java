@@ -2,6 +2,7 @@ package com.seaweed.simple.modules.sign.usecase;
 
 import com.seaweed.simple.modules.auth.domain.SimpleAuth;
 import com.seaweed.simple.modules.auth.service.SimpleAuthService;
+import com.seaweed.simple.modules.message.domain.MailMessage;
 import com.seaweed.simple.modules.message.event.SimpleMessageEvent;
 import com.seaweed.simple.modules.sign.domain.SimpleSign;
 import com.seaweed.simple.modules.sign.dto.SimpleSignDTO;
