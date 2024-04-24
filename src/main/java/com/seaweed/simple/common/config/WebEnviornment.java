@@ -5,7 +5,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class WebEnviornment {
-    @Value("${spring.profiles.active}")
+
+    @Value("${spring.profiles.active[0]}")
     private String activeProfile;
 
     public boolean isTest(){

@@ -24,7 +24,7 @@ public class SimpleAuth {
 
     @Getter
     private final String type = "simple";
-    private final String PASSWORD_SALT = "simple_password";
+    private static final String PASSWORD_SALT = "simple_password";
 
 
     public SimpleAuth(String loginId, String password) throws Exception {
@@ -46,7 +46,7 @@ public class SimpleAuth {
         return entity;
     }
 
-    private String encryptPassword(String password) throws NoSuchAlgorithmException {
+    private static String encryptPassword(String password) throws NoSuchAlgorithmException {
         return SHACryptoUtil.encrypt(password,PASSWORD_SALT);
     }
 
